@@ -78,10 +78,14 @@ WSGI_APPLICATION = 'taw_api.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+	"default": {
+		"ENGINE": "django.db.backends.postgresql_psycopg2",
+		"NAME": env("DB_NAME"),
+		"USER": env("DB_USER"),
+		"PASSWORD": env("DB_PW"), 
+		"HOST": env("DB_HOST"),
+		"PORT": "",                      # Set to empty string for default.
+	}
 }
 
 
